@@ -7,7 +7,7 @@ def _get_adv_(self, model, criterion, x, y,):
   if self.atk_steps==0 or self.atk_radius==0:
       return adv_x
   # "uniform" noise
-  adv_x += 2 * (torch.rand_like(x) - 0.5) * self.atk_radius * args.uniform_scale
+  adv_x += 2 * (torch.rand_like(x) - 0.5) * self.atk_radius * self.uniform_scale
   self._clip_(adv_x, x, radius=self.atk_radius)
   return adv_x.data
 ```

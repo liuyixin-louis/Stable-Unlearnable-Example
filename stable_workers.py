@@ -5,7 +5,7 @@ class StablePGDDefender():
         atk_radius, atk_steps, atk_step_size, atk_random_start):
         self.samp_num         = samp_num
         self.trans            = trans
-
+        self.uniform_scale = 1.0
         self.radius           = radius / 255.
         self.steps            = steps
         self.step_size        = step_size / 255.
@@ -59,29 +59,15 @@ class StablePGDDefender():
 
         return delta.data
 
-    def _get_adv_(self, model, criterion, x, y):
-        adv_x = x.clone()
-        if self.atk_steps==0 or self.atk_radius==0:
-            return adv_x
-
-        if self.atk_random_start:
-            adv_x += 2 * (torch.rand_like(x) - 0.5) * self.atk_radius
-            self._clip_(adv_x, x, radius=self.atk_radius)
-
-        for step in range(self.atk_steps):
-            adv_x.requires_grad_()
-            _y = model(adv_x)
-            loss = criterion(_y, y)
-
-            ''' gradient ascent '''
-            grad = torch.autograd.grad(loss, [adv_x])[0]
-
-            with torch.no_grad():
-                adv_x.add_(torch.sign(grad), alpha=self.atk_step_size)
-                self._clip_(adv_x, x, radius=self.atk_radius)
-
-        return adv_x.data
-
+    def _get_adv_(self, model, criterion, x, y,):
+      adv_x = x.clone()
+      if self.atk_steps==0 or self.atk_radius==0:
+          return adv_x
+      # "uniform" noise
+      adv_x += 2 * (torch.rand_like(x) - 0.5) * self.atk_radius * self.uniform_scale
+      self._clip_(adv_x, x, radius=self.atk_radius)
+      return adv_x.data
+        
     def _clip_(self, adv_x, x, radius):
         adv_x -= x
         adv_x.clamp_(-radius, radius)

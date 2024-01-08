@@ -1,4 +1,5 @@
 # Stable-Unlearnable-Example
+[Paper](https://arxiv.org/abs/2311.13091)
 This is official implementation of AAAI'24 Stable Unlearnable Example: Enhancing the Robustness of Unlearnable Examples via Stable Error-Minimizing Noise. 
 
 ![SEM-framework](./SEM-framework.jpg)

@@ -94,6 +94,7 @@ python train.py \
 ```
 
 ## Acknowledgment
+- Availability Attacks Create Shortcuts: [https://github.com/dayu11/Availability-Attacks-Create-Shortcuts](https://github.com/dayu11/Availability-Attacks-Create-Shortcuts)
 - Robust Unlearnable Example: [https://github.com/fshp971/stable-unlearnable-examples](https://github.com/fshp971/stable-unlearnable-examples)
 - Unlearnable examples: [https://github.com/HanxunH/Unlearnable-Examples](https://github.com/HanxunH/Unlearnable-Examples)
 - Adversarial poisons: [https://github.com/lhfowl/adversarial_poisons](https://github.com/lhfowl/adversarial_poisons)

@@ -1,3 +1,4 @@
+import torch 
 
 class StablePGDDefender():
     def __init__(self, samp_num, trans,

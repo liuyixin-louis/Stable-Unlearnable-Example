@@ -1,7 +1,7 @@
 cd $1
 imagenet_path=$2
 
-python generate_stable_em.py \
+python generate_em.py \
     --arch resnet18 \
     --dataset imagenet-mini \
     --train-steps 3000 \

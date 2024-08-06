@@ -82,6 +82,14 @@ python train.py \
     --save-name train
 ```
 
+#### Visualize the noise distribution of SEM and REM compared to the noise during evaluation
+Please refer to [./notebooks/analyze_noise_distribution.ipynb](./notebooks/analyze_noise_distribution.ipynb) for more details. TSNE and UMAP results are provided in at [./notebooks/vis-output](./notebooks/vis-output).
+
+![tsne-adv2adv](notebooks/vis-output/adv2adv_noise_distribution_TSNE.png)
+![umap-adv2adv](notebooks/vis-output/adv2adv_noise_distribution_UMAP.png)
+![tsne-rand2adv](notebooks/vis-output/random2evaladv_noise_distribution_TSNE.png)
+![umap-rand2adv](notebooks/vis-output/random2evaladv_noise_distribution_UMAP.png)
+
 ## Citation
 
 ```
